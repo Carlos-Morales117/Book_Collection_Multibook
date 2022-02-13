@@ -21,8 +21,8 @@ default: &default
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   host: localhost
-  username: <%= ENV['postgres'] %>
-  password: <%= ENV['postgres'] %>
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
 
 
 development:
@@ -86,5 +86,5 @@ test:
 production:
   <<: *default
   database: multibook_collection_production
-  username: postgres
-  password: <%= ENV['postgres'] %>
+  username: multibook_collection
+  password: <%= ENV['MULTIBOOK_COLLECTION_DATABASE_PASSWORD'] %>
